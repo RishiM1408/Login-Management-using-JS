@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h1>Sign Up</h1>
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name">
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <label for="password-confirm">Confirm Password:</label>
+        <input type="password" id="password-confirm" name="password-confirm">
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-page-btn" type="button">Login Page</button>
+      </form>
+    </div>
+
+    <script>
+      const signupBtn = document.getElementById("signup-btn");
+      signupBtn.addEventListener("click", () => {
+        const firstName = document.getElementById("first-name").value;
+        const lastName = document.getElementById("last-name").value;
+        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const passwordConfirm = document.getElementById("password-confirm").value;
+
+        // validate email
+        if (!email.includes("@") || !email.includes(".com")) {
+          alert("Please enter a valid email address");
+          return;
+        }
+
+        // validate password
+        if (password !== passwordConfirm) {
+          alert("Passwords do not match");
+          return;
+        }
+
+        // check if user data already exists in local storage
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const existingUser = users.find((user) => user.username === username);
+        if (existingUser) {
+          alert("This username is already taken");
+          return;
+        }
+
+        // add new user data to local storage
+        users.push({ firstName, lastName, email, username, password });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // redirect to login page
+        window.location.href = "login.html";
+      });
+      const loginPageBtn = document.getElementById("login-page-btn");
+            loginPageBtn.addEventListener("click", () => {
+            window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>

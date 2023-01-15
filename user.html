@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome User</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome! <span id="username"></span></h1>
+      <button id="logout-btn" type="button">Logout</button>
+    </div>
+
+    <script>
+      // get the logged in username from local storage
+      const username = localStorage.getItem("username");
+      document.getElementById("username").innerHTML = username;
+
+      const logoutBtn = document.getElementById("logout-btn");
+      logoutBtn.addEventListener("click", () => {
+        // clear local storage
+        localStorage.removeItem("username");
+
+        // redirect to login page
+        window.location.href = "login.html";
+      });
+    </script>
+  </body>
+</html>

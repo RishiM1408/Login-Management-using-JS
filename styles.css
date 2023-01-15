@@ -1,0 +1,122 @@
+/* Add Lato font */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Apply Lato font to the entire page */
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Style for the container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style for the form */
+form {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px grey;
+}
+
+/* Style for the form heading */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for the form labels */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Style for the form inputs */
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+}
+
+/* Style for the login and signup buttons */
+button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for hover effect on buttons */
+button:hover {
+  background-color: #45a049;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #logout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  body {
+    background-color: #f2f2f2;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #logout-btn, #delete-user-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  #logout-btn {
+    background-color: #f44336;
+  }

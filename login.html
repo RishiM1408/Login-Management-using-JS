@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button id="login-btn" type="button">Login</button>
+        <button id="signup-btn" type="button">Sign Up</button>
+      </form>
+    </div>
+
+    <script>
+      const loginBtn = document.getElementById("login-btn");
+      loginBtn.addEventListener("click", () => {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        if(username === "admin" && password === "admin"){
+        window.location.href = "admin.html";
+        }
+        // check if credentials match what's stored in local storage
+        else{
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(
+              (user) => user.username === username && user.password === password
+            );
+
+            if (user) {
+                // redirect to appropriate page
+                if (user.isAdmin) {
+                window.location.href = "admin.html";
+            } else {
+                window.location.href = "user.html";
+            }
+            } else {
+                alert("Incorrect username or password");
+            }
+        }
+      });
+
+      const signupBtn = document.getElementById("signup-btn");
+      signupBtn.addEventListener("click", () => {
+        window.location.href = "signup.html";
+      });
+    </script>
+  </body>
+</html>
